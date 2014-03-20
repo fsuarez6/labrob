@@ -4,11 +4,12 @@
   <version>0.1.0</version>
   <description>The labrob_description package</description>
 
-  <maintainer email="fsuarez6@gmail.com">fsuarez6</maintainer>
+  <maintainer email="fsuarez6@gmail.com">Francisco Suarez-Ruiz</maintainer>
   <license>BSD</license>
 
   <url type="website">http://www.romin.upm.es/wiki/</url>
   <url type="repository">https://github.com/fsuarez6/labrob</url>
+  <author>Francisco Suarez-Ruiz</author>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>robot_state_publisher</build_depend>
