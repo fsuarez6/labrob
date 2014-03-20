@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>labrob_description</name>
+  <version>0.1.0</version>
+  <description>The labrob_description package</description>
+
+  <maintainer email="fsuarez6@gmail.com">fsuarez6</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://www.romin.upm.es/wiki/</url>
+  <url type="repository">https://github.com/fsuarez6/labrob</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>robot_state_publisher</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+</package>
