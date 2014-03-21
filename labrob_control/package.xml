@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>labrob_control</name>
+  <version>0.1.0</version>
+  <description>The labrob_control package</description>
+
+  <maintainer email="fsuarez6@gmail.com">Francisco Suarez-Ruiz</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://www.romin.upm.es/wiki/</url>
+  <url type="repository">https://github.com/fsuarez6/labrob</url>
+  <author>Francisco Suarez-Ruiz</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>controller_manager</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>joy</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  
+</package>
