@@ -4,6 +4,7 @@
   <!-- Included URDF/XACRO Files -->
   <xacro:include filename="$(find labrob_description)/urdf/materials.urdf.xacro" />
   <xacro:include filename="$(find labrob_description)/urdf/wheel.urdf.xacro" />
+  <xacro:include filename="$(find turtlebot_description)/urdf/sensors/kinect.urdf.xacro"/>
   
   <!-- PROPERTY LIST -->
   <!--All units in m-kg-s-radians unit system -->
@@ -45,7 +46,7 @@
   </gazebo>
 
   <joint name="base_footprint_joint" type="fixed">
-  <origin xyz="0 0 ${wheel_radius - base_z_origin_to_wheel_origin}" rpy="0 0 0" />
+    <origin xyz="0 0 ${wheel_radius - base_z_origin_to_wheel_origin}" rpy="0 0 0" />
     <parent link="base_footprint"/>
     <child link="base_link" />
   </joint>
@@ -84,6 +85,16 @@
   <wheel fb="back" lr="right" parent="base_link" translateX="-1" translateY="-1" flipY="-1"/>
   <wheel fb="back" lr="left" parent="base_link" translateX="-1" translateY="1" flipY="-1"/>
   
+  <!-- Kinect -->
+  <link name="kinect_link"/>
+  <joint name="kinect_joint" type="fixed">
+    <origin xyz="0.6 0 -0.1" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="kinect_link" />
+  </joint>
+  <sensor_kinect  parent="kinect_link"/>
+  
+  <!-- Skid steer drive controller -->
   <gazebo>
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
       <alwaysOn>true</alwaysOn>

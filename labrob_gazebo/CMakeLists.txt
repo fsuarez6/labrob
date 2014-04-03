@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
   gazebo_ros_control
   labrob_description
+  turtlebot
 )
 
 catkin_package(
