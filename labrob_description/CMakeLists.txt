@@ -5,6 +5,7 @@ find_package(catkin REQUIRED COMPONENTS
   robot_state_publisher
   urdf
   xacro
+  turtlebot_description
 )
 
 catkin_package(
