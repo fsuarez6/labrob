@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
 project(labrob_gazebo)
 
 find_package(catkin REQUIRED COMPONENTS
-  gazebo
   gazebo_msgs
   gazebo_plugins
   gazebo_ros
