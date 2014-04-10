@@ -1,0 +1,27 @@
+<launch>
+  <!-- Export env variable so that gazebo finds the models and materials -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find labrob_worlds)/models" />
+  
+  <!-- We resume the logic in empty_world.launch, changing only the name of 
+    the world to be launched -->
+  <include file="$(find labrob_gazebo)/launch/labrob_gazebo.launch">
+    <arg name="world_name" value="$(find labrob_worlds)/worlds/crazy_maze.world" />
+    <arg name="spawn_args" value="-x 0 -y 0 -z 0"/>
+    <arg name="show_rviz" value="true"/>
+    <arg name="paused" value="false"/>
+    <arg name="debug" value="false"/>  
+    <arg name="gui" value="true"/>
+  </include>
+
+<!-- For proposes of testing the world NOT the robot
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find labrob_worlds)/worlds/crazy_maze.world" />
+    <arg name="paused" value="false" />
+    <arg name="debug" value="false" />
+    <arg name="gui" value="true" />    
+    <arg name="use_sim_time" value="true" />
+    <arg name="headless" value="false" />
+  </include>    
+-->
+
+</launch>

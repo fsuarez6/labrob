@@ -9,11 +9,14 @@
   <!-- PROPERTY LIST -->
   <!--All units in m-kg-s-radians unit system -->
   <property name="M_PI" value="3.1415926535897931" />
+  <property name="M_PI_2" value="1.570796327" />
+  <property name="DEG_TO_RAD" value="0.017453293" />
 
   <!-- Main Body-base -->
   <property name="base_x_size" value="1.0" /> 
   <property name="base_y_size" value="0.5" /> 
   <property name="base_z_size" value="0.25" />
+  <property name="hokuyo_size" value="0.05" />
   <property name="base_mass" value="35" /> <!-- in kg-->
   
   <!--Inertial macros for the box and cylinder. Units are kg*m^2-->
@@ -63,14 +66,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="1 0.5 0.25"/>
+        <box size="${base_x_size} ${base_y_size} ${base_z_size}"/>
       </geometry>
       <material name="Yellow" />
     </visual>  
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0 " />
       <geometry>
-        <box size="1 0.5 0.25"/>
+        <box size="${base_x_size} ${base_y_size} ${base_z_size}"/>
       </geometry>
     </collision>     
   </link>
@@ -85,19 +88,70 @@
   <wheel fb="back" lr="right" parent="base_link" translateX="-1" translateY="-1" flipY="-1"/>
   <wheel fb="back" lr="left" parent="base_link" translateX="-1" translateY="1" flipY="-1"/>
   
-  <!-- Kinect -->
+  
+  <!-- SENSORS -->
+  
+  <!-- hokuyo -->
+  <link name="hokuyo_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="${hokuyo_size} ${hokuyo_size} ${hokuyo_size}"/>
+      </geometry>
+      <material name="Blue" />
+    </visual>
+  </link>
+  <joint name="hokuyo_joint" type="fixed">
+    <origin xyz="${base_x_size/2 - hokuyo_size/2} 0 ${base_z_size/2+hokuyo_size/2}" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="hokuyo_link" />
+  </joint>
+  <gazebo reference="hokuyo_link">
+    <material>Gazebo/Blue</material>
+    <turnGravityOff>false</turnGravityOff>
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>${hokuyo_size/2} 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+          <resolution>0.001</resolution>
+        </range>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>hokuyo_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+  <!-- Kinect 
   <link name="kinect_link"/>
   <joint name="kinect_joint" type="fixed">
-    <origin xyz="0.6 0 -0.1" rpy="0 0 0" />
+    <origin xyz="0.5 0 -0.1" rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="kinect_link" />
   </joint>
-  <sensor_kinect  parent="kinect_link"/>
+  <sensor_kinect  parent="kinect_link"/> -->
+
   
+  <!-- DRIVE CONTROLLERS -->
+
   <!-- Skid steer drive controller -->
   <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-      <alwaysOn>true</alwaysOn>
+      <alwaysOn>1</alwaysOn>
       <updateRate>100.0</updateRate>
       <leftFrontJoint>front_left_wheel_joint</leftFrontJoint>
       <rightFrontJoint>front_right_wheel_joint</rightFrontJoint>
@@ -105,16 +159,44 @@
       <rightRearJoint>back_right_wheel_joint</rightRearJoint>
       <wheelSeparation>${base_y_size}</wheelSeparation>
       <wheelDiameter>${2*wheel_radius}</wheelDiameter>
-      <torque>35</torque>
+      <torque>100</torque>
       <broadcastTF>1</broadcastTF>
       <odometryFrame>map</odometryFrame>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <robotBaseFrame>base_footprint</robotBaseFrame>
     </plugin>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
-  </gazebo>
+  </gazebo> 
   
-
+  <!-- Differential drive controller 
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
+    <plugin name="differential_drive_controller_back" filename="libgazebo_ros_diff_drive.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <leftJoint>back_left_wheel_joint</leftJoint>
+      <rightJoint>back_right_wheel_joint</rightJoint>
+      <wheelSeparation>${base_y_size}</wheelSeparation>
+      <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+      <torque>100</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>map</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+    <plugin name="differential_drive_controller_front" filename="libgazebo_ros_diff_drive.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <leftJoint>front_left_wheel_joint</leftJoint>
+      <rightJoint>front_right_wheel_joint</rightJoint>
+      <wheelSeparation>${base_y_size}</wheelSeparation>
+      <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+      <torque>100</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>map</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+  </gazebo> -->
 
 </robot>
