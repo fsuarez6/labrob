@@ -3,6 +3,7 @@ project(labrob_control)
 
 find_package(catkin REQUIRED COMPONENTS
   controller_manager
+  joint_state_controller
   geometry_msgs
   joy
   rospy
