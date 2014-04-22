@@ -67,5 +67,10 @@ roslaunch labrob_gazebo labrob_gazebo.launch
 
 ## Changelog
 
+### 0.2.0 (2013-04-22)
+* Added scoring interface (topics and services)
+* Contributors: fsuarez6, ulikando
+
 ### 0.1.0 (2013-04-07)
 * Initial Release
+* Contributors: fsuarez6, ulikando
