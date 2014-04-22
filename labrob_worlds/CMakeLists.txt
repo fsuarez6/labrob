@@ -5,6 +5,8 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
   roscpp
   rospy
+  labrob_msgs
+  nav_msgs
 )
 
 
@@ -12,7 +14,11 @@ catkin_package(
 CATKIN_DEPENDS 
   roscpp
   gazebo_ros
+  labrob_msgs
+  nav_msgs
 )
+
+catkin_python_setup()
 
 find_package(gazebo REQUIRED)
 
