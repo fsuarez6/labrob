@@ -1,0 +1,475 @@
+<?xml version='1.0'?>
+<!-- Only put coins in this model. All the links will spin -->
+<sdf version='1.4'>
+  <model name='challenge_coins'>
+    <static>0</static>
+    
+    <link name='coin_1'>
+      <pose>10.5 8.5 0.6 0 0 0</pose>
+      <gravity>0</gravity>
+      <visual name='coin_1_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_2'>
+      <gravity>0</gravity>
+      <pose>8.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_2_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_3'>
+      <gravity>0</gravity>
+      <pose>6.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_3_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_4'>
+      <gravity>0</gravity>
+      <pose>4.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_4_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_5'>
+      <gravity>0</gravity>
+      <pose>2.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_5_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_6'>
+      <gravity>0</gravity>
+      <pose>0.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_6_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_7'>
+      <gravity>0</gravity>
+      <pose>-1.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_7_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_8'>
+      <gravity>0</gravity>
+      <pose>-3.5 -8.5 0.6 0 0 0</pose>
+      <visual name='coin_8_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_9'>
+      <gravity>0</gravity>
+      <pose>8.5 -5.5 0.6 0 0 0</pose>
+      <visual name='coin_9_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_10'>
+      <gravity>0</gravity>
+      <pose>6.5 -5.5 0.6 0 0 0</pose>
+      <visual name='coin_10_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_11'>
+      <gravity>0</gravity>
+      <pose>4.5 -5.5 0.6 0 0 0</pose>
+      <visual name='coin_11_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_12'>
+      <gravity>0</gravity>
+      <pose>2.5 -5.5 0.6 0 0 0</pose>
+      <visual name='coin_12_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_13'>
+      <gravity>0</gravity>
+      <pose>0.5 -5.5 0.6 0 0 0</pose>
+      <visual name='coin_13_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_14'>
+      <gravity>0</gravity>
+      <pose>-1.5 -5.5 0.6 0 0 0</pose>
+      <visual name='coin_14_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_15'>
+      <gravity>0</gravity>
+      <pose>8.5 -2.5 0.6 0 0 0</pose>
+      <visual name='coin_15_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_16'>
+      <gravity>0</gravity>
+      <pose>8.5 0.5 0.6 0 0 0</pose>
+      <visual name='coin_16_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_17'>
+      <gravity>0</gravity>
+      <pose>8.5 3.5 0.6 0 0 0</pose>
+      <visual name='coin_17_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_18'>
+      <gravity>0</gravity>
+      <pose>8.5 5.5 0.6 0 0 0</pose>
+      <visual name='coin_18_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_19'>
+      <gravity>0</gravity>
+      <pose>5.5 3.5 0.6 0 0 0</pose>
+      <visual name='coin_19_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_20'>
+      <gravity>0</gravity>
+      <pose>3.5 3.5 0.6 0 0 0</pose>
+      <visual name='coin_20_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_21'>
+      <gravity>0</gravity>
+      <pose>1.5 3.5 0.6 0 0 0</pose>
+      <visual name='coin_21_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_22'>
+      <gravity>0</gravity>
+      <pose>-0.5 3.5 0.6 0 0 0</pose>
+      <visual name='coin_22_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <link name='coin_23'>
+      <gravity>0</gravity>
+      <pose>-8.5 8.5 0.6 0 0 0</pose>
+      <visual name='coin_23_Visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://crazy_coins/meshes/coin.dae</uri>
+            <scale>0.4 0.4 0.4</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    
+    <plugin name="coins_manager_plugin" filename="libcoins_manager_plugin.so" >
+      <goal_coin>coin_1</goal_coin>
+      <robot_name>labrob</robot_name>
+      <update_rate>1.0</update_rate>
+      <spin_velocity>1.570796327</spin_velocity>
+    </plugin>
+    
+  </model>
+</sdf>

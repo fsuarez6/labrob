@@ -42,7 +42,6 @@ class ChallengeMapServer:
     
   def map_cb(self, msg):
     self.percentage_mapped = self.calculate_percentage(msg)
-    print self.percentage_mapped
     
   def teleop_timing(self, event):
     if self.using_teleop:
