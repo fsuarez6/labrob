@@ -14,9 +14,6 @@
   </include>
   
   <!-- Start the node that handles the map exploration percentage -->
-  <node name="challenge_map_server" pkg="labrob_worlds" type="challenge_map_server.py" output="log">
-    <param name="map_size_m2" value="400.0"/>
-    <param name="map_resolution" value="0.05"/>
-  </node>
+  <node name="challenge_server" pkg="labrob_worlds" type="challenge_server.py" output="screen" />
 
 </launch>

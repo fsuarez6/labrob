@@ -268,7 +268,7 @@
     <plugin name="coins_manager_plugin" filename="libcoins_manager_plugin.so" >
       <goal_coin>coin_2</goal_coin>
       <robot_name>labrob</robot_name>
-      <update_rate>10.0</update_rate>
+      <update_rate>1.0</update_rate>
       <spin_velocity>1.570796327</spin_velocity>
     </plugin>
     
