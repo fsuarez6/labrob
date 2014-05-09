@@ -40,6 +40,7 @@
 #include <ros/ros.h>
 #include <std_msgs/Int32.h>
 #include <std_msgs/Bool.h>
+#include <labrob_msgs/StatusMessage.h>
 
 
 #include <boost/thread.hpp>
@@ -66,8 +67,11 @@ private:
   
   // ROS STUFF
   ros::NodeHandle*        rosnode_;
+  ros::Publisher          status_publisher_;
   ros::Publisher          coins_publisher_;
   ros::Publisher          complete_publisher_;
+  
+  labrob_msgs::StatusMessage  status_msg_;
   
   double                  spin_velocity_;
   double                  coin_radius_;
@@ -118,7 +122,7 @@ private:
     else
       goal_coin_ = _sdf->GetElement("goal_coin")->Get<std::string>();
     
-    update_rate_ = 100.0;
+    update_rate_ = 1.0;
     if (!_sdf->HasElement("update_rate"))
       ROS_WARN("coins_manager_plugin missing <update_rate>, defaults to %f", update_rate_);
     else
@@ -154,6 +158,7 @@ private:
     // ROS: Setup publishers
     coins_publisher_ = rosnode_->advertise<std_msgs::Int32>("coins_remaining", 1);
     complete_publisher_ = rosnode_->advertise<std_msgs::Bool>("course_complete", 1);
+    status_publisher_ = rosnode_->advertise<labrob_msgs::StatusMessage>("ed27fa22584967f31278es75efd0e16", 1);
     
     // Initialize update rate stuff
     
@@ -169,6 +174,11 @@ private:
       
     ROS_INFO("Starting CoinsManager Plugin (ns = %s)!", plugin_namespace_.c_str());
     course_complete_ = false;
+    
+    // Populate the initial status msg
+    status_msg_.collected = 0;
+    status_msg_.total = links_.size();
+    status_msg_.complete = false;
   
   }
   
@@ -201,9 +211,13 @@ private:
           {
             // Check if We got the goal coin
             if (goal_coin_.compare(links_[i]->GetName()) == 0)
+            {
               course_complete_ = true;
+              status_msg_.complete = true;
+            }
             model_->RemoveChild(links_[i]);
             links_.erase(links_.begin() + i);
+            status_msg_.collected += 1;
           }
         }
       }
@@ -214,6 +228,8 @@ private:
       std_msgs::Bool complete_msg;
       complete_msg.data = course_complete_;
       complete_publisher_.publish(complete_msg);
+      status_publisher_.publish(status_msg_);
+      
       last_update_time_+= common::Time(update_period_);
     }
   }

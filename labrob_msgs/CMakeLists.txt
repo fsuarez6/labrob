@@ -8,6 +8,10 @@ add_service_files(
     FILES
     GetMapPercentage.srv
 )
+add_message_files(
+    FILES
+    StatusMessage.msg
+)
 
 generate_messages(DEPENDENCIES nav_msgs std_msgs)
 

@@ -3,6 +3,7 @@ import rospy, math
 import numpy as np
 import sys, termios, tty, select, os
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Bool
 
 class KeyTeleop(object):
   cmd_bindings = {'q':np.array([1,1]),
@@ -30,12 +31,21 @@ class KeyTeleop(object):
     self.command = np.array([0, 0])
     self.update_rate = 10   # Hz
     self.alive = True
-    # Setup publisher
+    self.using_teleop = False
+    # Setup publishers
     self.pub_twist = rospy.Publisher('/cmd_vel', Twist)
+    self.pub_using_telop = rospy.Publisher('/using_telop', Bool)
+    # Start the timer that will publish the teleop status at 10 Hz. Rate hard code on propose
+    self.timer = rospy.Timer(rospy.Duration(1.0/10.0), self.using_teleop_timer)    
           
   def fini(self):
     # Restore terminal settings
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
+    # Stop the timer
+    
+  def using_teleop_timer(self, event):
+    if not rospy.is_shutdown():
+      self.pub_using_telop.publish(Bool(self.using_teleop))
       
   def run(self):
     try:
@@ -45,7 +55,6 @@ class KeyTeleop(object):
       while not rospy.is_shutdown():
         ch = self.get_key()
         self.process_key(ch)
-        self.update()
         r.sleep()
     except rospy.exceptions.ROSInterruptException:
       pass
@@ -91,17 +100,24 @@ class KeyTeleop(object):
       self.print_usage()
     elif ch in self.cmd_bindings.keys():
       self.command = self.cmd_bindings[ch]
+      self.update()
+      self.using_teleop = True
     elif ch in self.set_bindings.keys():
       self.speed = self.speed * (1 + self.set_bindings[ch]*self.inc_ratio)
-      self.show_status()     
+      self.update()
+      self.show_status()
     elif ch == 'g':
       self.loginfo('Quitting')
       # Stop the robot
       twist = Twist()
       self.pub_twist.publish(twist)
+      self.timer.shutdown()
+      rospy.sleep(0.5)
       rospy.signal_shutdown('Shutdown')
     else:
+      self.using_teleop = False
       self.command = np.array([0, 0])
+      self.update()
   
   def update(self):
     if rospy.is_shutdown():
