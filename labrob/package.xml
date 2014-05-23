@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>labrob</name>
+  <description>The labrob metapackage</description>
+  
+  <version>0.2.0</version>
+  <maintainer email="fsuarez6@gmail.com">Francisco Suarez-Ruiz</maintainer>
+  <license>BSD</license>
+  <url type="website">https://github.com/fsuarez6/labrob</url>
+  <url type="repository">https://github.com/fsuarez6/labrob</url>
+  <author>Francisco Suarez-Ruiz</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>labrob_control</run_depend>
+  <run_depend>labrob_description</run_depend>
+  <run_depend>labrob_gazebo</run_depend>
+  <run_depend>labrob_msgs</run_depend>
+  <run_depend>labrob_worlds</run_depend>
+  
+  <export>
+     <metapackage/> 
+  </export>
+  
+</package>
