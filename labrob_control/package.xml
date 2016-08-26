@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>labrob_control</name>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <description>The labrob_control package</description>
 
   <maintainer email="fsuarez6@gmail.com">Francisco Suarez-Ruiz</maintainer>

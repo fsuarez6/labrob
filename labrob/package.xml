@@ -3,7 +3,7 @@
   <name>labrob</name>
   <description>The labrob metapackage</description>
   
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <maintainer email="fsuarez6@gmail.com">Francisco Suarez-Ruiz</maintainer>
   <license>BSD</license>
   <url type="website">https://github.com/fsuarez6/labrob</url>

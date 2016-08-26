@@ -2,8 +2,8 @@
 Changelog for package labrob_worlds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.0 (2016-08-26)
+------------------
 * Made it compatible with ROS kinetic
 * Contributors: fsuarez6
 
