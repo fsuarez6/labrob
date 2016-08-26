@@ -33,8 +33,8 @@ class KeyTeleop(object):
     self.alive = True
     self.using_teleop = False
     # Setup publishers
-    self.pub_twist = rospy.Publisher('/cmd_vel', Twist)
-    self.pub_using_telop = rospy.Publisher('/using_telop', Bool)
+    self.pub_twist = rospy.Publisher('/cmd_vel', Twist, queue_size=3)
+    self.pub_using_telop = rospy.Publisher('/using_telop', Bool, queue_size=3)
     # Start the timer that will publish the teleop status at 10 Hz. Rate hard code on propose
     self.timer = rospy.Timer(rospy.Duration(1.0/10.0), self.using_teleop_timer)    
           

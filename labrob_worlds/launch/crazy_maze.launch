@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- Export env variable so that gazebo finds the models and materials -->
   <env name="GAZEBO_MODEL_PATH" value="$(find labrob_worlds)/models" />

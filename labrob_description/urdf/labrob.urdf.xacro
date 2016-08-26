@@ -8,23 +8,23 @@
   
   <!-- PROPERTY LIST -->
   <!--All units in m-kg-s-radians unit system -->
-  <property name="M_PI" value="3.1415926535897931" />
-  <property name="M_PI_2" value="1.570796327" />
-  <property name="DEG_TO_RAD" value="0.017453293" />
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <xacro:property name="M_PI_2" value="1.570796327" />
+  <xacro:property name="DEG_TO_RAD" value="0.017453293" />
 
   <!-- Main Body-base -->
-  <property name="base_x_size" value="1.0" /> 
-  <property name="base_y_size" value="0.5" /> 
-  <property name="base_z_size" value="0.25" />
-  <property name="hokuyo_size" value="0.05" />
-  <property name="base_mass" value="35" /> <!-- in kg-->
+  <xacro:property name="base_x_size" value="1.0" /> 
+  <xacro:property name="base_y_size" value="0.5" /> 
+  <xacro:property name="base_z_size" value="0.25" />
+  <xacro:property name="hokuyo_size" value="0.05" />
+  <xacro:property name="base_mass" value="35" /> <!-- in kg-->
   
   <!--Inertial macros for the box and cylinder. Units are kg*m^2-->
-  <macro name="box_inertia" params="m x y z">
+  <xacro:macro name="box_inertia" params="m x y z">
     <inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
               iyy="${m*(x*x+z*z)/12}" iyz = "0"
               izz="${m*(x*x+z*z)/12}" /> 
-  </macro>
+  </xacro:macro>
   
   <!-- BASE-FOOTPRINT -->
   <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin -->
@@ -153,6 +153,7 @@
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
       <alwaysOn>1</alwaysOn>
       <updateRate>100.0</updateRate>
+      <robotNamespace>/</robotNamespace>
       <leftFrontJoint>front_left_wheel_joint</leftFrontJoint>
       <rightFrontJoint>front_right_wheel_joint</rightFrontJoint>
       <leftRearJoint>back_left_wheel_joint</leftRearJoint>
@@ -165,6 +166,10 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <robotBaseFrame>base_footprint</robotBaseFrame>
+      <covariance_x>0.0001</covariance_x>
+      <covariance_y>0.0001</covariance_y>
+      <covariance_z>0.0001</covariance_z>
+      <covariance_yaw>0.0001</covariance_yaw>
     </plugin>
   </gazebo> 
   

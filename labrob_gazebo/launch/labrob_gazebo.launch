@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- roslaunch arguments -->
   <arg name="world_name" default="worlds/empty.world"/>
@@ -19,7 +20,7 @@
   </include>
   
   <!-- urdf xml robot description loaded on the Parameter Server-->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find labrob_description)/urdf/labrob.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find labrob_description)/urdf/labrob.urdf.xacro' --inorder" />
   
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="labrob_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" 

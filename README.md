@@ -3,11 +3,7 @@ labrob
 
 ROS Metapackage for the tutorials in http://www.romin.upm.es/wiki/
 
-Developed by the [Group of Robots and Intelligent Machines](http://www.romin.upm.es/) from the 
-[Universidad Politécnica de Madrid](http://www.upm.es/internacional). This group is part of the 
-[Centre for Automation and Robotics](http://www.car.upm-csic.es/) (CAR UPM-CSIC). On going development continues in the master branch.
-
-**Maintainer:** Francisco Suárez Ruiz, [http://www.romin.upm.es/fsuarez/](http://www.romin.upm.es/fsuarez/)
+**Maintainer:** [Francisco Suárez Ruiz](http://fsuarez6.github.io/)
 
 ### Documentation
 
@@ -24,10 +20,9 @@ Developed by the [Group of Robots and Intelligent Machines](http://www.romin.upm
 
 ### Basic Requirements
 
-  1. Install [ROS Hydro](http://wiki.ros.org/hydro/Installation/Ubuntu) (**Desktop Install** Recommended)
-  2. Install [Gazebo 1.9](http://gazebosim.org/wiki/1.9/install)
+  1. Install [ROS Kinetic](http://wiki.ros.org/hydro/Installation/Ubuntu) (**Base Install** Recommended)
 ```
-sudo apt-get install ros-hydro-desktop gazebo
+sudo apt-get install ros-$ROS_DISTRO-base
 ``` 
 
 ### Repository Installation
@@ -45,7 +40,7 @@ wstool update
 Install any missing dependencies using rosdep:
 ```
 rosdep update
-rosdep install --from-paths . --ignore-src --rosdistro hydro
+rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO
 ``` 
 Now compile your ROS workspace. e.g.
 ```
@@ -54,23 +49,28 @@ cd ~/catkin_ws && catkin_make
 
 ### Testing Installation
 
-Be sure to always source the appropriate ROS setup file, which for Hydro is done like so:
+Be sure to always source the appropriate ROS setup file:
 ```
 source ~/catkin_ws/devel/setup.bash
 ``` 
 You might want to add that line to your `~/.bashrc`
 
-Try the `.launch` file in the `labrob_gazebo` package:
+Try to control the robot using the keyboard:
 ```
-roslaunch labrob_gazebo labrob_gazebo.launch
+roslaunch labrob_worlds crazy_maze.launch
+rosrun labrob_control key_teleop.py
 ``` 
 
 ## Changelog
 
-### 0.2.0 (2013-04-22)
+### 0.3.0 (2016-08-26)
+* Made it compatible with ROS kinetic
+* Contributors: fsuarez6
+
+### 0.2.0 (2014-04-22)
 * Added scoring interface (topics and services)
 * Contributors: fsuarez6, ulikando
 
-### 0.1.0 (2013-04-07)
+### 0.1.0 (2014-04-07)
 * Initial Release
 * Contributors: fsuarez6, ulikando

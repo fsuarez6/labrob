@@ -1,6 +1,7 @@
+<?xml version="1.0"?>
 <launch>
   <!-- urdf xml robot description loaded on the Parameter Server-->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find labrob_description)/urdf/labrob.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find labrob_description)/urdf/labrob.urdf.xacro' --inorder" />
   
   <!-- source that publishes the joint positions as a sensor_msgs/JointState -->
   <param name="use_gui" value="true"/>
