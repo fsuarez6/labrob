@@ -11,14 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
-catkin_python_setup()
-
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES labrob_control
-#  CATKIN_DEPENDS controller_manager geometry_msgs joy rospy sensor_msgs std_msgs
-#  DEPENDS system_lib
-)
+catkin_package()
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
