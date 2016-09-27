@@ -21,9 +21,6 @@ ROS Metapackage for the tutorials in http://www.romin.upm.es/wiki/
 ### Basic Requirements
 
   1. Install [ROS Kinetic](http://wiki.ros.org/hydro/Installation/Ubuntu) (**Base Install** Recommended)
-```
-sudo apt-get install ros-$ROS_DISTRO-base
-``` 
 
 ### Repository Installation
 

@@ -12,12 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES labrob_gazebo
-#  CATKIN_DEPENDS gazebo_ros labrob_description
-#  DEPENDS system_lib
-)
+catkin_package()
 
 include_directories(
   ${catkin_INCLUDE_DIRS}

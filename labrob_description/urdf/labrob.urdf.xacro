@@ -91,7 +91,7 @@
   
   <!-- SENSORS -->
   
-  <!-- hokuyo -->
+  <!-- hokuyo 
   <link name="hokuyo_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -133,16 +133,16 @@
         <frameName>hokuyo_link</frameName>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
   
-  <!-- Kinect 
+  <!-- Kinect -->
   <link name="kinect_link"/>
   <joint name="kinect_joint" type="fixed">
     <origin xyz="0.5 0 -0.1" rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="kinect_link" />
   </joint>
-  <sensor_kinect  parent="kinect_link"/> -->
+  <sensor_kinect  parent="kinect_link"/> 
 
   
   <!-- DRIVE CONTROLLERS -->

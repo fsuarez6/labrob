@@ -1,1 +1,2 @@
-- git: {local-name: labrob, uri: 'https://github.com/fsuarez6/labrob.git', version: master}
+- git: {local-name: labrob,     uri: 'https://github.com/fsuarez6/labrob.git',        version: master}
+- git: {local-name: aruco_ros,  uri: 'https://github.com/pal-robotics/aruco_ros.git', version: indigo-devel}

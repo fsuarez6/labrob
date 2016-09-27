@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Export env variable so that gazebo finds the models and materials -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find labrob_worlds)/models" />
+  
+  <!-- We resume the logic in empty_world.launch, changing only the name of 
+    the world to be launched -->
+  <include file="$(find labrob_gazebo)/launch/labrob_gazebo.launch">
+    <arg name="rviz_config_file" value="$(find labrob_worlds)/launch/aruco_marker.rviz" />
+    <arg name="world_name" value="$(find labrob_worlds)/worlds/aruco_marker.world" />
+    <arg name="spawn_args" value="-x 0 -y 0 -z 0"/>
+    <arg name="show_rviz" value="true"/>
+    <arg name="paused" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="true"/>
+  </include>
+  
+  <!-- Start the node that handles the map exploration percentage -->
+  <node name="challenge_server" pkg="labrob_worlds" type="challenge_server.py" output="screen" />
+  
+  <!-- aruco marker tracking -->
+  <node pkg="aruco_ros" type="single" name="aruco_single" output="log">
+    <remap from="camera_info" to="/camera/rgb/camera_info" />
+    <remap from="image" to="/camera/rgb/image_raw" />
+    <param name="image_is_rectified" value="false"/>
+    <param name="marker_size"        value="0.08"/>
+    <param name="marker_id"          value="26"/>
+    <param name="camera_frame"       value="camera_rgb_optical_frame"/>
+    <param name="marker_frame"       value="aruco_marker_frame" />
+  </node>
+
+</launch>

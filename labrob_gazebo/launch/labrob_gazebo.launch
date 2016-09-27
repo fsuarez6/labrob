@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <!-- roslaunch arguments -->
+  <arg name="rviz_config_file" default="$(find labrob_gazebo)/launch/gazebo.rviz"/>
   <arg name="world_name" default="worlds/empty.world"/>
   <arg name="spawn_args" default="-x 0 -y 0 -z 0"/>
   <arg name="show_rviz" default="true"/>
@@ -25,10 +26,10 @@
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="labrob_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" 
     args="$(arg spawn_args) -urdf -param robot_description -model labrob" />
-    
+  
   <!-- robot visualization in Rviz -->
   <group if="$(arg show_rviz)">
-    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find labrob_gazebo)/launch/gazebo.rviz"/> 
+    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(arg rviz_config_file)"/> 
     
     <!-- load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find labrob_control)/config/joint_position_control.yaml" command="load" />
