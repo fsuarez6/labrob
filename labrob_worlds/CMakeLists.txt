@@ -26,3 +26,4 @@ include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE
 
 add_library(coins_manager_plugin src/coins_manager_plugin.cpp)
 target_link_libraries(coins_manager_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_dependencies(coins_manager_plugin ${catkin_EXPORTED_TARGETS})
